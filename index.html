@@ -1,0 +1,90 @@
+<html>
+
+<head>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quinta Serie - Práctico 7 · Ejercicio 07</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="card">
+    <h2> Ejercicio 07: Menú de opciones (INS, DEL, UPD, LST, END)</h2>
+
+    <div class="instrucciones">
+      <h3> Instrucciones</h3>
+      <p>Seleccioná una opción del menú y pulsá <strong>Ejecutar</strong>.  
+         El sistema mostrará un mensaje indicando la acción seleccionada utilizando <code>switch</code>.</p>
+    </div>
+
+    <label for="opcionSelect">Opción:</label>
+    <select id="opcionSelect">
+      <option value="INS">INS (INSERTAR)</option>
+      <option value="DEL">DEL (ELIMINAR)</option>
+      <option value="UPD">UPD (ACTUALIZAR)</option>
+      <option value="LST">LST (LISTAR)</option>
+      <option value="END">END (FINALIZAR)</option>
+    </select>
+
+  
+    <div id="mensaje" class="resultado" aria-live="polite">
+      Seleccioná una opción y presioná "Ejecutar".
+    </div>
+
+    <button id="btnEjecutar" class="btn" type="button">¡Ejecutar!</button>
+
+    <footer>Curso de JavaScript · Enseñanza Media | Ejercicio 07</footer>
+  </div>
+
+
+  <script>
+    function procesarOpcion() {
+      
+      let opcion = document.getElementById('opcionSelect').value;
+      let mensaje = document.getElementById('mensaje');
+
+      
+      mensaje.className = 'resultado';
+
+      
+      switch (opcion) {
+        case 'INS':
+          mensaje.innerHTML = ' Seleccionó <strong>INSERTAR</strong> (INS).';
+          mensaje.classList.add('mensaje-ins');
+          console.log('procesarOpcion(): opcion = INS → INSERTAR');
+          break;
+        case 'DEL':
+          mensaje.innerHTML = ' Seleccionó <strong>ELIMINAR</strong> (DEL).';
+          mensaje.classList.add('mensaje-del');
+          console.log('procesarOpcion(): opcion = DEL → ELIMINAR');
+          break;
+        case 'UPD':
+          mensaje.innerHTML = ' Seleccionó <strong>ACTUALIZAR</strong> (UPD).';
+          mensaje.classList.add('mensaje-upd');
+          console.log('procesarOpcion(): opcion = UPD → ACTUALIZAR');
+          break;
+        case 'LST':
+          mensaje.innerHTML = ' Seleccionó <strong>LISTAR</strong> (LST).';
+          mensaje.classList.add('mensaje-lst');
+          console.log('procesarOpcion(): opcion = LST → LISTAR');
+          break;
+        case 'END':
+          mensaje.innerHTML = ' Seleccionó <strong>FINALIZAR</strong> (END).';
+          mensaje.classList.add('mensaje-end');
+          console.log('procesarOpcion(): opcion = END → FINALIZAR');
+          break;
+        default:
+          mensaje.innerHTML = ' Opción desconocida.';
+          mensaje.classList.add('mensaje-warn');
+          console.log('procesarOpcion(): opcion desconocida → ' + opcion);
+      }
+    }
+
+        let btnEjecutar = document.getElementById('btnEjecutar');
+    btnEjecutar.onclick = procesarOpcion;
+
+    
+    console.log('Script cargado: botón #btnEjecutar enlazado a procesarOpcion; listo para ejecutar.');
+  </script>
+</body>
+</html>
